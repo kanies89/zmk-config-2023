@@ -29,9 +29,6 @@
 &spi3 {
   compatible = "nordic,nrf-spim";
   status = "okay";
-  mosi-pin = <1>;
-  sck-pin = <2>;
-  miso-pin = <3>;
 
   pinctrl-0 = <&spi3_default>;
   pinctrl-1 = <&spi3_sleep>;
