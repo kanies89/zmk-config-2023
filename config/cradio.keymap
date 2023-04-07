@@ -52,7 +52,11 @@
   };
 };
 
-
+/ {
+    chosen {
+        zmk,underglow = &led_strip;
+    };
+};
 
 // Home row mods macro
 #define HRML(k1,k2,k3,k4) &ht LSHFT k1  &ht LGUI k2  &ht LCTRL k3  &ht LALT k4
