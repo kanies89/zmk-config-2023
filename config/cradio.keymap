@@ -12,51 +12,48 @@
 #include <dt-bindings/led/led.h>
 
 &pinctrl {
-    spi1_default: spi1_default {
+    spi3_default: spi3_default {
         group1 {
-            pinmux = <NRF_P0_1_SPI1_MOSI>;
-            bias-disable;
+            psels = <NRF_PSEL(SPIM_MOSI, 1, 1)>, <NRF_PSEL(SPIM_SCK, 1, 2)>, <NRF_PSEL(SPIM_MISO, 1, 3)>;
         };
     };
 
-    spi1_sleep: spi1_sleep {
+    spi3_sleep: spi3_sleep {
         group1 {
-            pinmux = <NRF_P0_1_SPI1_MOSI>;
-            bias-disable;
+            psels = <NRF_PSEL(SPIM_MOSI, 1, 1)>, <NRF_PSEL(SPIM_SCK, 1, 2)>, <NRF_PSEL(SPIM_MISO, 1, 3)>;
             low-power-enable;
         };
     };
 };
 
-&spi1 {
-    compatible = "nordic,nrf-spim";
-    status = "okay";
-    mosi-pin = <1>;
-    sck-pin = <2>;
-    miso-pin = <3>;
+&spi3 {
+  compatible = "nordic,nrf-spim";
+  status = "okay";
+  mosi-pin = <1>;
+  sck-pin = <2>;
+  miso-pin = <3>;
 
-    pinctrl-names = "default", "sleep";
-    pinctrl-0 = <&spi1_default>;
-    pinctrl-1 = <&spi1_sleep>;
+  pinctrl-0 = <&spi3_default>;
+  pinctrl-1 = <&spi3_sleep>;
+  pinctrl-names = "default", "sleep";
 
-    led_strip: ws2812@0 {
-        compatible = "worldsemi,ws2812-spi";
-        label = "WS2812";
+  led_strip: ws2812@0 {
+    compatible = "worldsemi,ws2812-spi";
+    label = "WS2812";
 
-        /* SPI */
-        reg = <0>;
-        spi-max-frequency = <4000000>;
+    /* SPI */
+    reg = <0>; /* ignored, but necessary for SPI bindings */
+    spi-max-frequency = <4000000>;
 
-        /* WS2812 */
-        chain-length = <10>;
-        spi-one-frame = <0x70>;
-        spi-zero-frame = <0x40>;
-        color-mapping = <LED_COLOR_ID_GREEN
-                        LED_COLOR_ID_RED
-                        LED_COLOR_ID_BLUE>;
-    };
+    /* WS2812 */
+    chain-length = <10>; /* number of LEDs */
+    spi-one-frame = <0x70>;
+    spi-zero-frame = <0x40>;
+    color-mapping = <LED_COLOR_ID_GREEN
+                          LED_COLOR_ID_RED
+                          LED_COLOR_ID_BLUE>;
+  };
 };
-
 
 
 / {
