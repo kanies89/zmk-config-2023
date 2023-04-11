@@ -50,59 +50,82 @@ combo_##name {                        \
 
 / {	
     macros {
-            ZMK_MACRO(tl_0,
-    	    wait-ms = <0>;
-    	    tap-ms = <0>;
-            bindings
-                = <&macro_press &to 0>
-                , <&macro_tap &rgb_ug RGB_COLOR_HSB(128,100,100)>
-                , <&macro_pause_for_release>
-                , <&macro_release &to 0>
-                , <&macro_tap &rgb_ug RGB_COLOR_HSB(210,100,100)>;
-		)
+    
+		layer_0: layer_0 {
+		    label = "layer shift color";
+		    compatible = "zmk,behavior-macro";
+		    #binding-cells = <0>;
+		    wait-ms = <0>;
+		    tap-ms = <0>;
+		    bindings
+			= <&macro_press &to 0>
+			, <&macro_tap &rgb_ug RGB_COLOR_HSB(128,100,100)>
+			, <&macro_pause_for_release>
+			, <&macro_release &to 0>
+			, <&macro_tap &rgb_ug RGB_COLOR_HSB(240,100,100)>
+			;
+		};
 		
-	    ZMK_MACRO(tl_1,
-	    wait-ms = <0>;
-    	    tap-ms = <0>;
-            bindings
-                = <&macro_press &to 1>
-                , <&macro_tap &rgb_ug RGB_COLOR_HSB(128,100,100)>
-                , <&macro_pause_for_release>
-                , <&macro_release &to 1>
-                , <&macro_tap &rgb_ug RGB_COLOR_HSB(305,100,100)>;
-		)
+		layer_1: layer_1 {
+		    label = "layer shift color";
+		    compatible = "zmk,behavior-macro";
+		    #binding-cells = <0>;
+		    wait-ms = <0>;
+		    tap-ms = <0>;
+		    bindings
+			= <&macro_press &to 1>
+			, <&macro_tap &rgb_ug RGB_COLOR_HSB(128,100,100)>
+			, <&macro_pause_for_release>
+			, <&macro_release &to 1>
+			, <&macro_tap &rgb_ug RGB_COLOR_HSB(305,100,100)>
+			;
+		};
 		
-	    ZMK_MACRO(tl_2,
-	    wait-ms = <0>;
-    	    tap-ms = <0>;
-            bindings
-                = <&macro_press &to 2>
-                , <&macro_tap &rgb_ug RGB_COLOR_HSB(128,100,100)>
-                , <&macro_pause_for_release>
-                , <&macro_release &to 2>
-                , <&macro_tap &rgb_ug RGB_COLOR_HSB(55,90,55)>;
-		)
+		layer_2: layer_2 {
+		    label = "layer shift color";
+		    compatible = "zmk,behavior-macro";
+		    #binding-cells = <0>;
+		    wait-ms = <0>;
+		    tap-ms = <0>;
+		    bindings
+			= <&macro_press &to 2>
+			, <&macro_tap &rgb_ug RGB_COLOR_HSB(128,100,100)>
+			, <&macro_pause_for_release>
+			, <&macro_release &to 2>
+			, <&macro_tap &rgb_ug RGB_COLOR_HSB(55,90,55)>
+			;
+		};
 		
-	    ZMK_MACRO(tl_3,
-	    wait-ms = <0>;
-    	    tap-ms = <0>;
-            bindings 
-		= <&macro_press &to 3>
-                , <&macro_tap &rgb_ug RGB_COLOR_HSB(128,100,100)>
-                , <&macro_pause_for_release>
-                , <&macro_release &to 3>
-                , <&macro_tap &rgb_ug RGB_COLOR_HSB(0,0,100)>;
-		)
-	    ZMK_MACRO(tl_4,
-	    wait-ms = <0>;
-    	    tap-ms = <0>;
-            bindings 
-		= <&macro_press &to 4>
-                , <&macro_tap &rgb_ug RGB_COLOR_HSB(128,100,100)>
-                , <&macro_pause_for_release>
-                , <&macro_release &to 4>
-                , <&macro_tap &rgb_ug RGB_COLOR_HSB(0,100,100)>;
-		)
+		layer_3: layer_3 {
+		    label = "layer shift color";
+		    compatible = "zmk,behavior-macro";
+		    #binding-cells = <0>;
+		    wait-ms = <0>;
+		    tap-ms = <0>;
+		    bindings
+			= <&macro_press &to 3>
+			, <&macro_tap &rgb_ug RGB_COLOR_HSB(128,100,100)>
+			, <&macro_pause_for_release>
+			, <&macro_release &to 3>
+			, <&macro_tap &rgb_ug RGB_COLOR_HSB(0,0,100)>
+			;
+		};
+		
+		layer_4: layer_4 {
+		    label = "layer shift color";
+		    compatible = "zmk,behavior-macro";
+		    #binding-cells = <0>;
+		    wait-ms = <0>;
+		    tap-ms = <0>;
+		    bindings
+			= <&macro_press &to 4>
+			, <&macro_tap &rgb_ug RGB_COLOR_HSB(128,100,100)>
+			, <&macro_pause_for_release>
+			, <&macro_release &to 4>
+			, <&macro_tap &rgb_ug RGB_COLOR_HSB(0,100,100)>
+			;
+		};
+
     };
 };
 
@@ -168,7 +191,7 @@ combo_##name {                        \
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │   LED +  │  LED -   │  LED ON  │ LED OFF  │          │
-            &none      &tl_4      &tl_2      &tl_1      &tl_0       &rgb_ug RGB_BRI &rgb_ug RGB_BRD &rgb_ug RGB_ON &rgb_ug RGB_OFF &none
+            &none      &tl_4      &tl_2      &tl_1      &layer_0       &rgb_ug RGB_BRI &rgb_ug RGB_BRD &rgb_ug RGB_ON &rgb_ug RGB_OFF &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │ LED EFF  │          │          │          │          │
             &none      &none      &none      &none      &none       &rgb_ug RGB_EFF &none    &none      &none      &none
