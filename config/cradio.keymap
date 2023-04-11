@@ -9,8 +9,6 @@
 #include <dt-bindings/zmk/rgb.h>
 #include "34keys.h"
 
-#include <dt-bindings/led/led.h>
-
 / {
   chosen {
     zmk,underglow = &led_strip;
@@ -21,7 +19,7 @@
   spi3_default: spi3_default {
     groups = <&spi3_mosi>;
     status = "okay";
-    spi3_mosi: spi3_mosi {
+    spi3_mosi: spi3_mosi-default {
       pinmux {
         function = "SPIM3_MOSI";
         pin = <1 1>;
@@ -33,7 +31,7 @@
     groups = <&spi3_mosi>;
     status = "disabled";
     nrf,pin-disable = <0>;
-    spi3_mosi: spi3_mosi {
+    spi3_mosi: spi3_mosi-sleep {
       pinmux {
         function = "SPIM3_MOSI";
         pin = <1 1>;
