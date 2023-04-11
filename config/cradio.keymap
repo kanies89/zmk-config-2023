@@ -11,28 +11,42 @@
 
 #include <dt-bindings/led/led.h>
 
-&pinctrl {
-    spi3_default: spi3_default {
-        group1 {
-            psels = <NRF_PSEL(SPIM_MOSI, 1, 1)>, <NRF_PSEL(SPIM_SCK, 1, 2)>, <NRF_PSEL(SPIM_MISO, 1, 3)>;
-        };
-    };
+/ {
+  chosen {
+    zmk,underglow = &led_strip;
+  };
+};
 
-    spi3_sleep: spi3_sleep {
-        group1 {
-            psels = <NRF_PSEL(SPIM_MOSI, 1, 1)>, <NRF_PSEL(SPIM_SCK, 1, 2)>, <NRF_PSEL(SPIM_MISO, 1, 3)>;
-            low-power-enable;
-        };
+&pinctrl {
+  spi3_default: spi3_default {
+    groups = <&spi3_mosi>;
+    status = "okay";
+    spi3_mosi: spi3_mosi {
+      pinmux {
+        function = "SPIM3_MOSI";
+        pin = <1 1>;
+      };
     };
+  };
+
+  spi3_sleep: spi3_sleep {
+    groups = <&spi3_mosi>;
+    status = "disabled";
+    nrf,pin-disable = <0>;
+    spi3_mosi: spi3_mosi {
+      pinmux {
+        function = "SPIM3_MOSI";
+        pin = <1 1>;
+      };
+    };
+  };
 };
 
 &spi3 {
-  compatible = "nordic,nrf-spim";
   status = "okay";
-
+  pinctrl-names = "default", "sleep";
   pinctrl-0 = <&spi3_default>;
   pinctrl-1 = <&spi3_sleep>;
-  pinctrl-names = "default", "sleep";
 
   led_strip: ws2812@0 {
     compatible = "worldsemi,ws2812-spi";
@@ -46,17 +60,8 @@
     chain-length = <10>; /* number of LEDs */
     spi-one-frame = <0x70>;
     spi-zero-frame = <0x40>;
-    color-mapping = <LED_COLOR_ID_GREEN
-                          LED_COLOR_ID_RED
-                          LED_COLOR_ID_BLUE>;
+    color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
   };
-};
-
-
-/ {
-    chosen {
-        zmk,underglow = &led_strip;
-    };
 };
 
 // Home row mods macro
