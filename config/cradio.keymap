@@ -15,6 +15,12 @@
 #define HRMR(k1,k2,k3,k4) &ht RALT k1  &ht RCTRL k2  &ht RGUI k3  &ht RSHFT k4
 
 / {
+    chosen {
+        zmk,underglow = &led_strip;
+    };
+};
+
+/ {
     behaviors {
         ht: hold_tap {
             label = "hold_tap";
