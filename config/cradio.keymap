@@ -148,7 +148,7 @@ combo_##name {                        \
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ ESC      │ DELETE   │ BACKSPACE│
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp ESC    &kp DEL    &kp BSPC
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &kp TAB    &kp ENTER      &kp SPACE  &tl_3
+                                             &kp TAB    &kp ENTER      &kp SPACE  &layer_3
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -165,7 +165,7 @@ combo_##name {                        \
         //│ <        │ >        │  7       │  8       │  9       │   │ ,        │ .        │          │          │          │
             &kp LT     &kp GT     &kp N7     &kp N8     &kp N9         &kp COMMA  &kp DOT    &trans     &trans     &trans 
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans         &trans     &tl_3
+                                             &trans     &trans         &trans     &layer_3
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -182,7 +182,7 @@ combo_##name {                        \
         //│  <       │  >       │  |       │  &       │  _       │   │  ?       │  \       │          │          │          │
             &kp LT     &kp GT     &kp PIPE   &kp AMPS   &kp UNDER      &kp QMARK  &kp BSLH   &trans     &trans     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans         &trans     &tl_3
+                                             &trans     &trans         &trans     &layer_3
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -191,7 +191,7 @@ combo_##name {                        \
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │   LED +  │  LED -   │  LED ON  │ LED OFF  │          │
-            &none      &tl_4      &tl_2      &tl_1      &layer_0       &rgb_ug RGB_BRI &rgb_ug RGB_BRD &rgb_ug RGB_ON &rgb_ug RGB_OFF &none
+            &none      &layer_4      &layer_2      &layer_1      &layer_0       &rgb_ug RGB_BRI &rgb_ug RGB_BRD &rgb_ug RGB_ON &rgb_ug RGB_OFF &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │ LED EFF  │          │          │          │          │
             &none      &none      &none      &none      &none       &rgb_ug RGB_EFF &none    &none      &none      &none
@@ -216,7 +216,7 @@ combo_##name {                        \
         //│          │ CLEAR BT │ PROFILE 2│ PROFILE 1│ PROFILE 0|   |          │          │          │          │          │
             &none    &bt BT_CLR &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0 &none        &none    &trans     &trans     &trans   
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans         &trans     &tl_0
+                                             &trans     &trans         &trans     &layer_0
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
