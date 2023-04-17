@@ -31,6 +31,14 @@
             quick-tap-ms = <150>;
             global-quick-tap;
             bindings = <&kp>, <&kp>;
+	l_kp: l_kp {
+       		compatible = "zmk,behavior-hold-tap";
+        	label = "LAYER_MACRO";
+        	#binding-cells = <2>;
+        	flavor = "hold-preferred";
+        	tapping-term-ms = <200>;
+        	bindings = <&layer_3>, <&kp>;  // &mo on hold, &macro on tap
+    };
         };
     };
 };  
@@ -134,7 +142,7 @@ combo_##name {                        \
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ ESC      │ NONE     │ DELETE   │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp ESC    &none      &kp DEL
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &kp TAB    &kp ENTER      &kp SPACE  &layer_3
+                                             &kp TAB    &kp ENTER      &kp SPACE  &l_kp 0 BKSP
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -151,7 +159,7 @@ combo_##name {                        \
         //│ <        │ >        │  7       │  8       │  9       │   │ ,        │ .        │          │          │          │
             &kp LT     &kp GT     &kp N7     &kp N8     &kp N9         &kp COMMA  &kp DOT    &trans     &trans     &trans 
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans         &trans     &none
+                                             &trans     &trans         &trans     &l_kp 0 BKSP
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -168,7 +176,7 @@ combo_##name {                        \
         //│  <       │  >       │  |       │  &       │  _       │   │  ?       │  \       │          │          │          │
             &kp LT     &kp GT     &kp PIPE   &kp AMPS   &kp UNDER      &kp QMARK  &kp BSLH   &trans     &trans     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans         &trans     &none
+                                             &trans     &trans         &trans     &l_kp 0 BKSP
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -202,7 +210,7 @@ combo_##name {                        \
         //│          │ CLEAR BT │ PROFILE 2│ PROFILE 1│ PROFILE 0|   |          │          │          │          │          │
             &none    &bt BT_CLR &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0 &none        &none    &trans     &trans     &trans   
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans         &trans     &none
+                                             &trans     &trans         &trans     &l_kp 0 BKSP
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
