@@ -134,7 +134,7 @@ combo_##name {                        \
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ ESC      │ NONE     │ DELETE   │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp ESC    &none      &kp DEL
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &kp TAB    &kp ENTER      &kp SPACE  &mt BSPC LSHIFT
+                                             &kp TAB    &kp ENTER      &kp SPACE  &mt BSPC layer_3
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -177,7 +177,7 @@ combo_##name {                        \
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │   LED +  │  LED -   │  LED ON  │ LED OFF  │          │
-            &none      &none      &none      &none      &none       &rgb_ug RGB_BRI &rgb_ug RGB_BRD &rgb_ug RGB_ON &rgb_ug RGB_OFF &none
+            &none      &layer_4     &layer_2      &layer_1     &layer_0       &rgb_ug RGB_BRI &rgb_ug RGB_BRD &rgb_ug RGB_ON &rgb_ug RGB_OFF &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │ LED EFF  │          │          │          │          │
             &none      &none      &none      &none      &none       &rgb_ug RGB_EFF &none    &none      &none      &none
