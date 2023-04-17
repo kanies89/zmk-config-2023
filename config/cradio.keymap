@@ -134,7 +134,7 @@ combo_##name {                        \
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ ESC      │ NONE     │ DELETE   │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp ESC    &none      &kp DEL
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &kp TAB    &kp ENTER      &kp SPACE  &mt BSPC layer_3
+                                             &kp TAB    &kp ENTER      &kp SPACE  &layer_3
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
